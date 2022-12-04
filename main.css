@@ -1,0 +1,16 @@
+body {
+    min-height: 2000px;
+}
+
+#home {
+    height: 600px;
+   
+}
+#about {
+    height: 500px;
+   
+}
+#contact {
+    height: 500px;
+}
+/* To start, scrollspy requires two things: a navigation, list group, or a simple set of links, plus a scrollable container. The scrollable container can be the <body> or a custom element with a set height and overflow-y: scroll. */
