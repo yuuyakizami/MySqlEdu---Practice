@@ -209,8 +209,10 @@ if (isset($_POST['submit'])) {
 
   <!-- Contact -->
   <!-- Footer Section -->
-
-    <?php include'footer.php';?>
+<footer id="footer">
+ <?php include'footer.php';?>
+</footer>
+    
     <script src="myModal.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 

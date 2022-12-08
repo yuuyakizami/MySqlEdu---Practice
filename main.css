@@ -13,4 +13,7 @@ body {
 #contact {
     height: 500px;
 }
+#footer {
+    background-color: aquamarine;
+}
 /* To start, scrollspy requires two things: a navigation, list group, or a simple set of links, plus a scrollable container. The scrollable container can be the <body> or a custom element with a set height and overflow-y: scroll. */
