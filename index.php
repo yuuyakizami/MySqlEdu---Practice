@@ -1,5 +1,7 @@
 <!-- DATABASE CONNECTION -->
-<?php include'mysqli_connect.php';?>
+<?php include'mysqli_connect.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,7 +49,7 @@
       <!-- Modal -->
       <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
+          <div class="modal-content">  
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -62,7 +64,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary" name="done">Submit</button>
             </div>
           </div>
         </div>
@@ -85,68 +87,22 @@
           voluptatum minima voluptatem debitis!
         </p>
      <!-- <?php
-$sql = "CREATE TABLE pet(name VARCHAR(25), owner VARCHAR(50), species VARCHAR(40), sex CHAR(1), birth DATE, death DATE)";
+// $sql = "CREATE TABLE pet(name VARCHAR(25), owner VARCHAR(50), species VARCHAR(40), sex CHAR(1), birth DATE, death DATE)";
 
-if(mysqli_query($con, $sql)){
-    echo "<p>Table pet is created</p>";
-}
+// if(mysqli_query($con, $sql)){
+//     echo "<p>Table pet is created</p>";
+// }
 ;?> -->
 
       </div>
       <!-- contact-process -->
-      <?php
-// for contact
-// Get User Input
+<?php  
 
-$name = isset($_POST['name']);
-$email = isset($_POST['email']);
-$message = isset($_POST['message']);
-// error messages
-$missingName = '<br><p>Please Enter Your Name</p>';
-$missingEmail = '<br><p>Please Enter Your Email</p>';
-$invalidEmail = '<p>You entered an Invalid Email</p>';
-$missingMessage = '<p>Please Enter Your Message</p>';
-      $errors = "";
-//if the user has submitted the form
-if (isset($_POST['submit'])) {
-    //check for errors
-  
-    if (!$name) {
-        $errors .= $missingName;
-    } else {
-        $name = filter_var($name, htmlspecialchars($name));
-    }
-    // 
-    if (!$email) {
-        $errors .= $missingEmail;
-    } else {
-        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors .= $invalidEmail;
-        }
-    }
-    if (!$message) {
-        $errors .= $missingMessage;
-    } else {
-        $message = filter_var($message, FILTER_SANITIZE_STRING);
-    }
-    //if the are any errors 
 
-    if ($errors) {
-        $resultMessage = '<div class="alert alert-danger">' . $errors . '</div>';
-    }
-    echo $resultMessage;
-}
-    // print error message
-    //  no errors
-    // send message
-    // if Success
-    // print success message 
-    // print warning message
 ;?>
       <div id="contact" class="container-fluid text-center mx-auto">
         <h1>Contact Us</h1>
-        <form class="form-group" action="index.php" method="post">
+        <form class="form-group" action="contact-process.php" method="POST">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" name="name" id="name" placeholder="John Doe">
@@ -160,11 +116,20 @@ if (isset($_POST['submit'])) {
           <textarea class="form-control" name="message" id="message" rows="3" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia nobis corporis, eveniet iste placeat officiis nemo. Similique, aspernatur! Saepe inventore nihil, dolores deserunt repellendus ad minima numquam sed optio cumque?"></textarea>
         </div>
 
-          <button class="btn btn-outline-success btn-lg" name="submit" id="submit">Send Message</button>
+          <input type="submit" class="btn btn-outline-success btn-lg" name="submit" value="submit" id="submit">
         </form>
       </div>
+<?php 
+// start session
+//  store data
+// $_SESSION["firstname"] = "Zairo";
+// $_SESSION["lastname"] = "Tirador";
+// $firstname = $_SESSION["firstname"];
+// $lastname = $_SESSION["lastname"];
+// echo "<p>Hi $firstname $lastname</p>";
 
-      <div id="contact" class="container text-center mx-auto">
+?>
+      <!-- <div id="contact" class="container text-center mx-auto">
         <h1>ADD DETAILS OF PET</h1>
         <form class="form-group" action="index.php" method="post">
         <div class="mb-3">
@@ -205,13 +170,14 @@ if (isset($_POST['submit'])) {
         </form>
       </div>
 
-    </div>
+    </div> -->
 
   <!-- Contact -->
   <!-- Footer Section -->
-<footer id="footer">
- <?php include'footer.php';?>
-</footer>
+
+ <?php include'footer.php';
+ session_destroy();?>
+
     
     <script src="myModal.js"></script>
       <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
