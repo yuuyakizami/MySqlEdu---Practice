@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2022 at 07:36 AM
+-- Generation Time: Dec 08, 2022 at 07:21 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -24,11 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pet`
+--
+
+CREATE TABLE `pet` (
+  `name` varchar(25) DEFAULT NULL,
+  `owner` varchar(50) DEFAULT NULL,
+  `species` varchar(40) DEFAULT NULL,
+  `sex` char(1) DEFAULT NULL,
+  `birth` date DEFAULT NULL,
+  `death` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `usermessage`
 --
 
 CREATE TABLE `usermessage` (
   `id` int(6) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `message` varchar(500) NOT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -38,19 +54,9 @@ CREATE TABLE `usermessage` (
 -- Dumping data for table `usermessage`
 --
 
-INSERT INTO `usermessage` (`id`, `email`, `message`, `reg_date`) VALUES
-(1, 'email', 'message', '2022-11-09 15:03:01'),
-(2, 'email', 'message', '2022-11-09 15:03:49'),
-(3, '', '', '2022-11-09 15:05:46'),
-(4, '', '', '2022-11-09 15:17:55'),
-(5, '', '', '2022-11-09 15:50:51'),
-(6, '', '', '2022-11-15 13:58:26'),
-(7, '', '', '2022-11-15 13:58:26'),
-(8, '', '', '2022-11-15 14:00:04'),
-(9, '', '', '2022-11-15 14:03:13'),
-(10, 'email', 'message', '2022-11-15 14:04:42'),
-(11, '', '', '2022-11-15 14:06:03'),
-(12, '', '', '2022-11-16 16:26:18');
+INSERT INTO `usermessage` (`id`, `name`, `email`, `message`, `reg_date`) VALUES
+(58, 'Zairo Angelo Tirador', 'zairoangelo@gmail.com', 'Hi Sweetheart', '2022-12-06 13:09:26'),
+(59, 'Zairo Angelo Tirador', 'zairoangelo@gmail.com', 'asdasdsad', '2022-12-08 06:19:49');
 
 -- --------------------------------------------------------
 
@@ -102,7 +108,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `usermessage`
 --
 ALTER TABLE `usermessage`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `users`
